@@ -22,3 +22,10 @@ function [f,g] = linear_regression(theta, X,y)
   %        computed gradient in 'g'.
   
 %%% YOUR CODE HERE %%%
+
+% calculate cost function and gradient
+
+for i = 1 : m
+    f = f + 0.5 * power(theta' *  X(:, i) - y(i), 2);
+    g = g + X(:, i) * (theta' * X(:, i) - y(i));
+end
