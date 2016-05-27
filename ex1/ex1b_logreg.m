@@ -28,7 +28,8 @@ theta = rand(n,1)*0.001;
 % Call minFunc with the logistic_regression.m file as the objective function.
 %
 % TODO:  Implement batch logistic regression in the logistic_regression.m file!
-%
+% % check the gradient calculated by linear_regression
+% grad_check(@logistic_regression, theta, 24, train.X, train.y)
 % tic;
 % theta=minFunc(@logistic_regression, theta, options, train.X, train.y);
 % fprintf('Optimization took %f seconds.\n', toc);
@@ -40,6 +41,9 @@ theta = rand(n,1)*0.001;
 % time for your logistic_regression.m and logistic_regression_vec.m implementations.
 %
 % Uncomment the lines below to run your vectorized code.
+% % check the gradient calculated by linear_regression
+% grad_check(@logistic_regression_vec, theta, 24, train.X, train.y)
+
 %theta = rand(n,1)*0.001;
 tic;
 theta=minFunc(@logistic_regression_vec, theta, options, train.X, train.y);

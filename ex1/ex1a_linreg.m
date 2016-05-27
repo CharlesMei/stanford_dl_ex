@@ -42,6 +42,8 @@ theta = rand(n,1);
 % TODO:  Implement the linear regression objective and gradient computations
 % in linear_regression.m
 %
+% % check the gradient calculated by linear_regression
+% grad_check(@linear_regression, theta, 24, train.X, train.y)
 tic;
 options = struct('MaxIter', 200);
 theta = minFunc(@linear_regression, theta, options, train.X, train.y);
@@ -56,7 +58,10 @@ fprintf('Optimization took %f seconds.\n', toc);
 %
 % Uncomment the lines below to run your vectorized code.
 %Re-initialize parameters
+
 theta = rand(n,1);
+% % check the gradient calculated by linear_regression
+% grad_check(@linear_regression, theta, 24, train.X, train.y)
 tic;
 theta = minFunc(@linear_regression_vec, theta, options, train.X, train.y);
 fprintf('Optimization took %f seconds.\n', toc);
