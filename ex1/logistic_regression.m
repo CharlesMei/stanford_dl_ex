@@ -29,6 +29,6 @@ function [f,g] = logistic_regression(theta, X,y)
     end
 end
 
-function y = sigmoid(x)
-    y = 1 ./ (1 + exp(-x));
-end
+% function y = sigmoid(x)
+%     y = 1 ./ (1 + exp(-x));
+% end

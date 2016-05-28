@@ -22,5 +22,5 @@ function [f,g] = logistic_regression_vec(theta, X,y)
     f = -(y*log(sigmoid(theta'*X))' + (1-y)*log(1-sigmoid(theta'*X))');
     g = X * (sigmoid(theta'*X) - y)';
  
-function y = sigmoid(x)
-    y = 1 ./ (1 + exp(-x));
+% function y = sigmoid(x)
+%     y = 1 ./ (1 + exp(-x));
