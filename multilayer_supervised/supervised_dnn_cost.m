@@ -61,17 +61,18 @@ groundTruth = full(sparse(labels, 1:numCases, 1));  % numClasses * numCases
 ceCost = -mean(sum(groundTruth .* log(pred_prob))); 
 %% compute gradients using backpropagation
 %%% YOUR CODE HERE %%%
-gradStack{end}.W = -1/numCases * (groundTruth - pred_prob) * hAct{end}'; % softmax, 
-% gradStack{end}.b = -1/numCases * sum(groundTruth - pred_prob, 2);
-gradStack{end}.b = -mean(groundTruth - pred_prob, 2);
+% gradStack{end}.W = -1/numCases * (groundTruth - pred_prob) * hAct{end}'; % softmax, 
+% % gradStack{end}.b = -1/numCases * sum(groundTruth - pred_prob, 2);
+% gradStack{end}.b = -mean(groundTruth - pred_prob, 2);
 
-delta = cell(numHidden + 1, 1);
-delta{numHidden+1} = -stack{numHidden+1}.W' * (groundTruth - pred_prob) .* derivate_fun(hAct{numHidden+1});  % numClasses * numCases
+delta = cell(numHidden + 2, 1);
+delta{numHidden+2} = -(groundTruth - pred_prob);
+% delta{numHidden+1} = -stack{numHidden+1}.W' * (groundTruth - pred_prob) .* derivate_fun(hAct{numHidden+1});  % numClasses * numCases
 
-for layer = numHidden : -1 : 1
+for layer = numHidden+1 : -1 : 1
     delta{layer} = (stack{layer}.W' * delta{layer+1}) .* derivate_fun(hAct{layer});
 end
-for layer = numHidden : -1 : 1
+for layer = numHidden+1 : -1 : 1
     gradStack{layer}.W = delta{layer+1} * hAct{layer}' / numCases;
     gradStack{layer}.b = mean(delta{layer+1}, 2);
 end
