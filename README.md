@@ -9,3 +9,7 @@ If you have suggestions, questions, or bug reports, please submit contact:
 
 Andrew Maas ( amaas AT cs dot stanford.edu)
 Sameep Tandon (sameep AT stanford dot edu)
+
+
+This tutorial is version 2, the code framework in the exercises is different from the exercise
+i have finished last year with the help of tutorial version 1.
